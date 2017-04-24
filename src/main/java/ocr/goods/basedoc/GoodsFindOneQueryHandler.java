@@ -7,11 +7,11 @@ import otocloud.common.ActionURI;
 import otocloud.framework.app.function.ActionDescriptor;
 import otocloud.framework.app.function.ActionHandlerImpl;
 import otocloud.framework.app.function.AppActivityImpl;
+import otocloud.framework.core.CommandMessage;
 import otocloud.framework.core.HandlerDescriptor;
-import otocloud.framework.core.OtoCloudBusMessage;
 
 /**
- * TODO: 获取所有商品的查询，只支持分页查询
+ * TODO: 获取所有商品的查询
  * @date 2016年11月26日
  * @author lijing
  */
@@ -33,9 +33,9 @@ public class GoodsFindOneQueryHandler extends ActionHandlerImpl<JsonObject> {
 
 	//处理器
 	@Override
-	public void handle(OtoCloudBusMessage<JsonObject> msg) {
+	public void handle(CommandMessage<JsonObject> msg) {
 
-		JsonObject queryParams = msg.body();	            
+		JsonObject queryParams = msg.getContent();            
 		appActivity.getAppDatasource().getMongoClient().find(appActivity.getDBTableName(this.appActivity.getBizObjectType()), 
 				queryParams, findRet -> {
 	        if (findRet.succeeded()) {

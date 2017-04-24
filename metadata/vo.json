@@ -2,20 +2,20 @@
 ba_goods:
 [
 {
-	"account_id": "Kano",
-	"product_sku_code": "WINE001SP0001SP0002",
-	"title": "科特勒2014 干红葡萄酒750ml",
-	"sales_catelogs": [{
+	"account_id": "Kano",  //租户
+	"product_sku_code": "WINE001SP0001SP0002",  //商品SKU编码
+	"title": "科特勒2014 干红葡萄酒750ml",  //商品标题
+	"sales_catelogs": [{   //商品所属类别
 		"code": "WINE",
 		"name": "酒水"
 	}],
-	"product_sku": { 		            	
-    	"bar_code": "",
-    	"product_specifications": [
+	"product_sku": { 	//商品规格属性
+    	"bar_code": "",  //条码
+    	"product_specifications": [  //规格组合
     	 	{
-    	 		"specification_code": "SP0001",
-    	 		"specification_name": "颜色",
-    			"specification_value": "洋红"
+    	 		"specification_code": "SP0001",  //规格代码
+    	 		"specification_name": "颜色",  //规格名词
+    			"specification_value": "洋红"   //规格值
     		},
     		{
     	 		"specification_code": "SP0002",
@@ -23,15 +23,15 @@ ba_goods:
     			"specification_value": "750ml"
     		}
     	],
-    	"product_spu": {
-    		"spu_code": "WINE001",
-    		"base_unit": "瓶",
-    		"brand": {
-    			"code": "BR0001",
-    			"name": "科特勒",
-    			"manufacturer": {
-        			"code": "BR0001",
-        			"name": "法国科特勒酒庄"        			
+    	"product_spu": {  //商品SPU属性
+    		"spu_code": "WINE001",  //spu编码
+    		"base_unit": "瓶",   //单位
+    		"brand": {   //厂商品牌
+    			"code": "BR0001",  //品牌代码
+    			"name": "科特勒", //品牌名
+    			"manufacturer": {  //制造商信息
+        			"code": "BR0001",  //制造商代码
+        			"name": "法国科特勒酒庄" //制造商代名       		 	
     			}		            			
     		
     		},

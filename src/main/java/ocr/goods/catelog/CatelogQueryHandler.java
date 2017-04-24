@@ -7,8 +7,8 @@ import otocloud.common.OtoCloudDirectoryHelper;
 import otocloud.framework.app.function.ActionDescriptor;
 import otocloud.framework.app.function.ActionHandlerImpl;
 import otocloud.framework.app.function.AppActivityImpl;
+import otocloud.framework.core.CommandMessage;
 import otocloud.framework.core.HandlerDescriptor;
-import otocloud.framework.core.OtoCloudBusMessage;
 
 /**
  * TODO: 商品分类树查询
@@ -33,7 +33,7 @@ public class CatelogQueryHandler extends ActionHandlerImpl<JsonArray> {
 
 	//处理器
 	@Override
-	public void handle(OtoCloudBusMessage<JsonArray> msg) {
+	public void handle(CommandMessage<JsonArray> msg) {
 		
 		String menusFilePath = OtoCloudDirectoryHelper.getConfigDirectory() + "sales_catelogs.json";		
 		
