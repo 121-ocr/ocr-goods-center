@@ -40,8 +40,8 @@ public class App extends AppServiceEngineImpl
 /*	@Override
 	public WebServer createWebServer() {
 		return new MyWebServer();
-	}
-*/
+	}*/
+
 	//创建APP全局组件
 	@Override
 	public List<OtoCloudComponent> createServiceComponents() {
