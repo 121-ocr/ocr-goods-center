@@ -12,20 +12,20 @@ import otocloud.framework.core.OtoCloudEventHandlerRegistry;
  * @date 2015年11月15日
  * @author lijing
  */
-public class CatelogComponent extends AppActivityImpl {
+public class CatelogTreeComponent extends AppActivityImpl {
 
 	//业务活动组件名
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "sales-catelog-mgr";
+		return "sales-catelog-tree";
 	}
 	
 	//业务活动组件要处理的核心业务对象
 	@Override
 	public String getBizObjectType() {
 		// TODO Auto-generated method stub
-		return "ba_sales_catelogs";
+		return "ba_sales_catelog_tree";
 	}
 
 	//发布此业务活动对外暴露的业务事件
@@ -42,7 +42,7 @@ public class CatelogComponent extends AppActivityImpl {
 		// TODO Auto-generated method stub
 		List<OtoCloudEventHandlerRegistry> ret = new ArrayList<OtoCloudEventHandlerRegistry>();
 
-		CatelogQueryHandler queryHandler = new CatelogQueryHandler(this);
+		CatelogTreeQueryHandler queryHandler = new CatelogTreeQueryHandler(this);
 		ret.add(queryHandler);	
 
 		

@@ -1,25 +1,10 @@
 package ocr.goods;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import otocloud.framework.app.engine.AppService;
 import otocloud.framework.app.engine.AppServiceEngineImpl;
 import otocloud.framework.core.OtoCloudComponent;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
-import com.hazelcast.config.InvalidConfigurationException;
-import com.hazelcast.nio.IOUtil;
-import com.hazelcast.util.StringUtil;
 
 
 /**

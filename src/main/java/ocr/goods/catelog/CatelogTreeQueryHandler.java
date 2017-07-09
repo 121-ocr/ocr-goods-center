@@ -2,8 +2,8 @@ package ocr.goods.catelog;
 
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.json.JsonArray;
+import io.vertx.core.json.JsonObject;
 import otocloud.common.ActionURI;
-import otocloud.common.OtoCloudDirectoryHelper;
 import otocloud.framework.app.function.ActionDescriptor;
 import otocloud.framework.app.function.ActionHandlerImpl;
 import otocloud.framework.app.function.AppActivityImpl;
@@ -15,11 +15,11 @@ import otocloud.framework.core.HandlerDescriptor;
  * @date 2016年11月15日
  * @author lijing
  */
-public class CatelogQueryHandler extends ActionHandlerImpl<JsonArray> {
+public class CatelogTreeQueryHandler extends ActionHandlerImpl<JsonArray> {
 	
-	public static final String ADDRESS = "findtree";
+	public static final String ADDRESS = "query";
 
-	public CatelogQueryHandler(AppActivityImpl appActivity) {
+	public CatelogTreeQueryHandler(AppActivityImpl appActivity) {
 		super(appActivity);
 		// TODO Auto-generated constructor stub
 	}
@@ -35,23 +35,18 @@ public class CatelogQueryHandler extends ActionHandlerImpl<JsonArray> {
 	@Override
 	public void handle(CommandMessage<JsonArray> msg) {
 		
-		String menusFilePath = OtoCloudDirectoryHelper.getConfigDirectory() + "sales_catelogs.json";		
-		
-		this.getAppActivity().getVertx().fileSystem().readFile(menusFilePath, result -> {
-    	    if (result.succeeded()) {
-    	    	String fileContent = result.result().toString(); 
-    	        
-    	    	JsonArray srvCfg = new JsonArray(fileContent);
-    	        msg.reply(srvCfg);     	        
-    	        
-    	    } else {
-				Throwable errThrowable = result.cause();
+		appActivity.getAppDatasource().getMongoClient().find(appActivity.getDBTableName(this.appActivity.getBizObjectType()), 
+				new JsonObject(), findRet -> {
+	        if (findRet.succeeded()) {
+	            msg.reply(findRet.result());
+	        } else {
+				Throwable errThrowable = findRet.cause();
 				String errMsgString = errThrowable.getMessage();
 				appActivity.getLogger().error(errMsgString, errThrowable);
 				msg.fail(100, errMsgString);		
-   
-    	    }	
-		});
+	        }
+
+	    });
 
 
 	}

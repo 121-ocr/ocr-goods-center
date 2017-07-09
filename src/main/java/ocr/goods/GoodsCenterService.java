@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ocr.goods.basedoc.GoodsComponent;
-import ocr.goods.catelog.CatelogComponent;
+import ocr.goods.catelog.CatelogTreeComponent;
 import otocloud.framework.app.engine.AppServiceImpl;
 import otocloud.framework.app.engine.WebServer;
 import otocloud.framework.app.function.AppActivity;
@@ -36,8 +36,8 @@ public class GoodsCenterService extends AppServiceImpl
 	public List<AppActivity> createBizActivities() {
 		List<AppActivity> retActivities = new ArrayList<>();		
 	
-		CatelogComponent catelogComponent = new CatelogComponent();
-		retActivities.add(catelogComponent);
+		CatelogTreeComponent catelogTreeComponent = new CatelogTreeComponent();
+		retActivities.add(catelogTreeComponent);
 		
 		GoodsComponent goodsComponent = new GoodsComponent();
 		retActivities.add(goodsComponent);
